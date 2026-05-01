@@ -25,7 +25,7 @@ const Banner = () => {
             </button>
 
             <button className="px-6 py-3 border border-green-600 text-green-600 rounded-lg hover:bg-blue-50 transition">
-              Learn More
+              Banner now
             </button>
           </div>
         </div>
