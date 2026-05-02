@@ -34,7 +34,9 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           {/* Login Button */}
           <button className="px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition">
+            <NavLink href={"/login"}>
             Login
+            </NavLink>
           </button>
 
           {/* Google Button */}
