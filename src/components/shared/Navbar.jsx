@@ -4,7 +4,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import Google from "../../assets/google.png";
 import Image from "next/image";
-import NaavLink from "./NavLink";
+
 import NavLink from "./NavLink";
 //import { authClient } from "@/lib/auth-client";
 

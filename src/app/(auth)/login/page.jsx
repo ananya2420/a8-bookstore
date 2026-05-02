@@ -1,10 +1,13 @@
 'use client';
 
 import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Google from "../../../assets/google.png"
+import { toast } from "react-hot-toast";
 
 const LoginPage = () => {
 
@@ -12,26 +15,28 @@ const LoginPage = () => {
   
   const [isShowPassword,setIsShowPassword]=useState(false);
 
+const handleLoginFunc = async (data) => {
+  const { data: res, error } = await authClient.signIn.email({
+    email: data.email,
+    password: data.password,
+    callbackURL: "/", 
+  });
 
-  const handleLoginFunc=async(data)=>{
-         //e.preventDefault();
-  //const email=e.target.email.value;
-  //const password=e.target.password.value;
-  //console.log(email,password);
-
-  console.log(data,"data");
-
-
-  const { data:res, error } = await authClient.signIn.email({
-    email: data.email, // required
-    password: data.password, // required
-    rememberMe: true,
-    callbackURL: "/",
-});
-   
-console.log(res,error);
-
+  if (error) {
+    toast.error(error.message || "Invalid credentials");
+  } else {
+    toast.success("Welcome back!");
+    router.push("/"); // Navigate back home
   }
+};
+
+// Add this button inside your form or below it
+const handleGoogleLogin = async () => {
+  await authClient.signIn.social({
+    provider: "google",
+    callbackURL: "/",
+  });
+};
   //console.log(watch("email"));
   //console.log(watch("password"));
   return (
@@ -59,6 +64,11 @@ console.log(res,error);
 </fieldset>
 
           <button className="btn w-full bg-slate-800 text-white">Login</button>
+
+          <button className="flex items-center gap-2 px-4 py-2 bg-black-600  rounded-lg hover:bg-black-700 transition">
+            <Image src={Google} alt="google" width={20} height={20} />
+            <span>Continue with Google</span>
+          </button>
 
           <p className='mt-4'>Do not Have An Account ?<Link href={"/register"} className='text-blue-500'>Register</Link> </p>
 
