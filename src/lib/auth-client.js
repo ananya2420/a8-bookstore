@@ -5,4 +5,4 @@ export const authClient = createAuthClient({
 })
 
 // Export the hook for easy access in components
-export const { useSession } = authClient;
+export const { useSession, updateSession } = authClient;
