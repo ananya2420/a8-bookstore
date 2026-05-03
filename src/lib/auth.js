@@ -7,10 +7,10 @@ const client = new MongoClient(process.env.MONGO_URI);
 const db = client.db("book-store");
 
 export const auth = betterAuth({
-  // Enabling email and password authentication
+  
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false, // Set to true in production for better security
+    requireEmailVerification: false, 
   },
 
   // Database adapter

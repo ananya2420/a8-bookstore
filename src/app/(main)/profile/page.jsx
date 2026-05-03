@@ -1,26 +1,28 @@
 "use client";
-import { authClient } from "@/lib/auth-client";
+
+import { useSession } from "@/lib/auth-client";
 import Link from "next/link";
 import profilePic from "../../../assets/profile.png";
 
 export default function ProfilePage() {
-  const { data: session, isPending } = authClient.useSession();
+  const { data: session, isPending } = useSession();
 
-  // 1. Handle Loading State
   if (isPending) {
     return (
-      <div className="flex justify-center mt-20">
-        <span className="loading loading-spinner loading-lg"></span>
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <span className="loading loading-spinner loading-lg text-green-600"></span>
       </div>
     );
   }
 
-  // 2. Handle Unauthenticated State (Optional but recommended)
   if (!session) {
     return (
-      <div className="flex flex-col items-center justify-center mt-20 gap-4">
-        <p>You must be logged in to view this page.</p>
-        <Link href="/login" className="btn btn-primary">Login</Link>
+      <div className="min-h-[80vh] flex flex-col items-center justify-center gap-4">
+        <h2 className="text-2xl font-bold text-gray-800">Access Denied</h2>
+        <p className="text-gray-500">You must be logged in to view this page.</p>
+        <Link href="/login" className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+          Go to Login
+        </Link>
       </div>
     );
   }
@@ -28,20 +30,21 @@ export default function ProfilePage() {
   const userImage = session.user?.image;
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center bg-green-50">
-      <div className="card w-96 bg-base-100 shadow-xl border border-gray-100">
-        <div className="card-body items-center text-center">
-          <h2 className="card-title text-green-800 text-2xl mb-4 border-b w-full pb-2 justify-center">
+    <div className="min-h-[80vh] flex items-center justify-center bg-green-50 p-4">
+      <div className="card w-96 bg-white shadow-xl border border-gray-100 rounded-2xl overflow-hidden">
+        <div className="p-8 flex flex-col items-center text-center">
+          <h2 className="text-green-800 text-2xl font-bold mb-6 border-b w-full pb-4">
             My Profile
           </h2>
           
-          <div className="avatar mb-4">
-            <div className="w-28 h-28 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2 overflow-hidden">
+          <div className="mb-6">
+            <div className="w-28 h-28 rounded-full ring-4 ring-green-500 ring-offset-2 overflow-hidden">
               <img 
                 src={userImage || profilePic.src} 
                 alt="Profile"
                 className="object-cover w-full h-full"
                 onError={(e) => {
+                  // Fixed: Removed TypeScript 'as' casting
                   e.target.src = profilePic.src;
                 }}
               />
@@ -55,27 +58,30 @@ export default function ProfilePage() {
             {session.user?.email}
           </p>
 
-          <div className="w-full text-left space-y-2 mb-8 text-gray-600 border-t pt-4">
-            <p className="text-sm">
-              <span className="font-semibold text-gray-400">Member Since:</span>{" "}
-              {session.user?.createdAt 
-                ? new Date(session.user.createdAt).toLocaleDateString("en-US", {
-                    month: "long",
-                    year: "numeric",
-                  }) 
-                : "N/A"}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold text-gray-400">Status:</span>{" "}
-              <span className="text-green-600">Active</span>
-            </p>
+          <div className="w-full text-left space-y-3 mb-8 text-gray-600 border-t pt-6">
+            <div className="flex justify-between">
+              <span className="font-semibold text-gray-400">Member Since:</span>
+              <span className="text-gray-700">
+                {session.user?.createdAt 
+                  ? new Date(session.user.createdAt).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    }) 
+                  : "N/A"}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-semibold text-gray-400">Status:</span>
+              <span className="text-green-600 font-medium">Active</span>
+            </div>
           </div>
 
-          <div className="card-actions w-full">
-            <Link href="/profile/update" className="btn bg-green-600 hover:bg-green-700 text-white w-full border-none normal-case text-lg">
-              Update Information
-            </Link>
-          </div>
+          <Link 
+            href="/profile/update" 
+            className="w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition font-semibold text-center"
+          >
+            Update Information
+          </Link>
         </div>
       </div>
     </div>
