@@ -22,9 +22,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
-        <div className="flex items-center">
-          <Image src={logo} width={120} height={60} alt="Logo" />
-        </div>
+        <div className="flex items-center gap-2">
+  <Image src={logo} width={120} height={60} alt="Logo" />
+
+  <h1 className="text-xl md:text-2xl font-bold tracking-wide">
+    <span className="text-black">Book</span>{" "}
+    <span className="text-green-600">Store</span>
+  </h1>
+</div>
 
         {/* Menu */}
         <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
