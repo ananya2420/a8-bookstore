@@ -7,25 +7,25 @@ import Link from "next/link";
 import { useRouter } from "next/navigation"; // Import the router
 import { toast } from "react-toastify";
 
+
 const BookDetailsPage = ({ params }) => {
   const router = useRouter();
   
-  // Unwrap params using React.use()
+  
   const { id } = React.use(params);
   const book = books.find((b) => b.id == id);
 
-  /** 
-   * AUTHENTICATION LOGIC
-   * Replace 'null' with your actual auth state (e.g., from a context or hook)
-   **/
+ 
   const user = null; 
+
+
 
   const handleBorrow = () => {
     if (!user) {
-      // 1. Show error toast
+      
       toast.error("Please login to borrow books!");
       
-      // 2. Redirect to login page
+     
       router.push("/login");
       return;
     }

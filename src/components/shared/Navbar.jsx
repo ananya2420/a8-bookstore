@@ -6,8 +6,17 @@ import Google from "../../assets/google.png";
 import Image from "next/image";
 
 import NavLink from "./NavLink";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
+
+  const handleGoogleSignin=async()=>{
+      const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data,'data');
+  }
+
   return (
     <nav className="w-full bg-white shadow-md px-6 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -40,7 +49,7 @@ const Navbar = () => {
           </button>
 
           {/* Google Button */}
-          <button className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition">
+          <button onClick={handleGoogleSignin} className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-gray-900 transition">
             <Image src={Google} alt="google" width={20} height={20} />
             <span>Continue with Google</span>
           </button>

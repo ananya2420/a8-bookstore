@@ -17,6 +17,12 @@ export const auth = betterAuth({
   database: mongodbAdapter(db, {
     client,
   }),
+   socialProviders: {
+        google: { 
+            clientId: process.env.GOOGLE_CLIENT_ID, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+        }, 
+    },
 });
 
 //book-store: password: 5TBPqUOsMMY0OqPp
