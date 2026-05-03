@@ -42,6 +42,8 @@ const LoginPage = () => {
     }
   };
 
+
+  
   return (
    <Suspense fallback={<div>Loading...</div>}>
      <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
