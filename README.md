@@ -8,7 +8,8 @@ key features: The key features of this project include a dynamic and user-friend
 
 
 Package:
-Animate.css, better-auth – for authentication (login, Google sign-in, sessions)
+Animate.css(Testimonial section),
+better-auth – for authentication (login, Google sign-in, sessions)
 react-hook-form – for handling forms and validation
 react-hot-toast – for success/error notifications
 react-icons – for UI icons
