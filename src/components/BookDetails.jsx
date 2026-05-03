@@ -8,31 +8,23 @@ const BookDetails = () => {
       <Marquee speed={40} pauseOnHover gradient={false}>
         
         <span className="mx-10 text-sm md:text-base text-gray-700">
-          📖 Title: The Great Adventure
+          📚 New Arrivals: The Great Adventure
         </span>
 
         <span className="mx-10 text-sm md:text-base text-gray-700">
-          ✍️ Author: John Doe
+          📖 New Arrivals: Science Explained
         </span>
 
         <span className="mx-10 text-sm md:text-base text-gray-700">
-          ⭐ Rating: 4.8 / 5
+          🚀 New Arrivals: Mystery Island
         </span>
 
         <span className="mx-10 text-sm md:text-base text-gray-700">
-          📚 Category: Fiction, Adventure
+          💡 Special Discount on Memberships — Join Now & Save!
         </span>
 
         <span className="mx-10 text-sm md:text-base text-gray-700">
-          💰 Price: $19.99
-        </span>
-
-        <span className="mx-10 text-sm md:text-base text-gray-700">
-          🚚 Free delivery available on this book
-        </span>
-
-        <span className="mx-10 text-sm md:text-base text-gray-700">
-          🔥 Limited stock available — order soon!
+          🎉 Exclusive Offer: Get premium access at a reduced price!
         </span>
 
       </Marquee>

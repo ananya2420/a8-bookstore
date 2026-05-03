@@ -4,7 +4,7 @@
     "title": "The Great Adventure",
     "author": "John Smith",
     "description": "An exciting journey through unknown lands and hidden treasures.",
-    "category": "Fiction",
+    "category": "Story",
     "available_quantity": 12,
     "image_url": "book1"
   },
@@ -22,7 +22,7 @@
     "title": "Mystery Island",
     "author": "Robert Brown",
     "description": "A thrilling mystery set on a deserted island full of secrets.",
-    "category": "Mystery",
+    "category": "Story",
     "available_quantity": 5,
     "image_url": "book3"
   },
@@ -31,7 +31,7 @@
     "title": "Coding Mastery",
     "author": "Sarah Johnson",
     "description": "Learn modern web development and master programming skills.",
-    "category": "Technology",
+    "category": "Tech",
     "available_quantity": 20,
     "image_url": "book4"
   },
@@ -40,7 +40,7 @@
     "title": "History of Civilizations",
     "author": "Michael Lee",
     "description": "Explore the rise and fall of ancient civilizations across the world.",
-    "category": "History",
+    "category": "Story",
     "available_quantity": 7,
     "image_url": "book5"
   },
@@ -49,7 +49,7 @@
     "title": "Mindset Matters",
     "author": "Angela Davis",
     "description": "A motivational guide to building a strong and positive mindset.",
-    "category": "Self-Help",
+    "category": "Story",
     "available_quantity": 15,
     "image_url": "book6"
   },
@@ -58,7 +58,7 @@
     "title": "Space Odyssey",
     "author": "Carl Newton",
     "description": "A futuristic journey exploring space, planets, and galaxies.",
-    "category": "Science Fiction",
+    "category": "Science",
     "available_quantity": 9,
     "image_url": "book7"
   },
@@ -67,7 +67,7 @@
     "title": "Business Basics",
     "author": "Laura Wilson",
     "description": "Learn how to start and grow a successful business from scratch.",
-    "category": "Business",
+    "category": "Tech",
     "available_quantity": 11,
     "image_url": "book8"
   },
@@ -76,7 +76,7 @@
     "title": "Poetry of Life",
     "author": "David Miller",
     "description": "A beautiful collection of poems about life, love, and emotions.",
-    "category": "Poetry",
+    "category": "Story",
     "available_quantity": 6,
     "image_url": "book9"
   },
@@ -85,7 +85,7 @@
     "title": "World Geography",
     "author": "Sophia Anderson",
     "description": "Discover countries, landscapes, and cultures around the world.",
-    "category": "Education",
+    "category": "Science",
     "available_quantity": 10,
     "image_url": "book10"
   },
@@ -94,7 +94,7 @@
     "title": "Digital Marketing Guide",
     "author": "James White",
     "description": "A complete guide to mastering online marketing strategies.",
-    "category": "Marketing",
+    "category": "Tech",
     "available_quantity": 13,
     "image_url": "book11"
   },
@@ -103,7 +103,7 @@
     "title": "The Art of Cooking",
     "author": "Maria Garcia",
     "description": "Delicious recipes and cooking techniques from around the world.",
-    "category": "Cooking",
+    "category": "Story",
     "available_quantity": 4,
     "image_url": "book12"
   }

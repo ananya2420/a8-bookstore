@@ -3,23 +3,26 @@
 import { useState } from "react";
 import books from "@/data/books.json";
 import BookCard from "@/components/BooksCard";
+import { useRouter } from "next/navigation";
 
 const AllBooksPage = () => {
   const [selectedBook, setSelectedBook] = useState("All");
   const [searchText, setSearchText] = useState("");
 
-  // Book filter options (ONLY what you asked)
+  const router = useRouter();
+
+  // FIXED: Category-based filters (required by instruction)
   const bookFilters = [
     "All",
-    "Mystery Island",
-    "Coding Mastery",
-    "History of Civilizations",
+    "Story",
+    "Tech",
+    "Science",
   ];
 
-  // Filter logic
+  // FIXED: category filtering logic (required by instruction)
   const filteredBooks = books.filter((book) => {
     const matchBook =
-      selectedBook === "All" || book.title === selectedBook;
+      selectedBook === "All" || book.category === selectedBook;
 
     const matchSearch =
       book.title.toLowerCase().includes(searchText.toLowerCase());

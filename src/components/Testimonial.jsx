@@ -1,4 +1,5 @@
 import React from "react";
+import "animate.css";
 
 const testimonials = [
   {
@@ -23,10 +24,11 @@ const testimonials = [
 
 const TestimonialSection = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white animate__animated animate__fadeIn">
       <div className="max-w-6xl mx-auto px-6">
+
         {/* Heading */}
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center animate__animated animate__fadeInDown">
           <h2 className="text-3xl font-bold">Readers’ Experiences</h2>
           <p className="text-gray-500 mt-2">
             Real thoughts from people who explored Book City
@@ -38,7 +40,7 @@ const TestimonialSection = () => {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="relative group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition"
+              className="relative group border border-gray-200 rounded-xl p-6 hover:shadow-xl transition animate__animated animate__fadeInUp"
             >
               {/* Quote icon */}
               <span className="text-5xl text-gray-200 absolute top-4 left-4">

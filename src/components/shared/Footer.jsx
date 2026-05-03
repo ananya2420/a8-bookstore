@@ -47,10 +47,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact */}
+        {/* Contact Us */}
         <div>
           <h3 className="text-lg font-semibold mb-4 text-white">
-            Get in Touch
+            Contact Us
           </h3>
 
           {/* Email input */}

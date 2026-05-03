@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
@@ -7,16 +7,23 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
+import Image from 'next/image';
+import Google from "../../../assets/google.png";
 
 const RegisterPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [isShowPassword, setIsShowPassword] = useState(false);
   const router = useRouter();
 
-  const handleRegisterFunc = async (data) => {
-    console.log(data);
-    const { data: res, error } = await authClient.signUp.email({
+  const handleGoogleSignin = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/"
+    });
+  };
 
+  const handleRegisterFunc = async (data) => {
+    const { data: res, error } = await authClient.signUp.email({
       name: data.name,
       email: data.email,
       password: data.password,
@@ -25,7 +32,6 @@ const RegisterPage = () => {
     });
 
     if (error) {
-      console.log(error);
       toast.error(error.message || "Registration failed");
       return;
     }
@@ -40,7 +46,7 @@ const RegisterPage = () => {
     <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
       <div className='p-4 rounded-xl bg-white text-black'>
         <h2 className='font-bold text-3xl text-center mb-6'>
-          Register your account
+          Register
         </h2>
 
         <form className="space-y-4" onSubmit={handleSubmit(handleRegisterFunc)}>
@@ -101,6 +107,25 @@ const RegisterPage = () => {
           <button className="btn w-full bg-slate-800 text-white">
             Register
           </button>
+
+          {/* Google Login */}
+          <button
+            type="button"
+            onClick={handleGoogleSignin}
+            className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition w-full justify-center"
+          >
+            <Image src={Google} alt="google" width={20} height={20} />
+            <span>Continue with Google</span>
+          </button>
+
+          {/* Login Link */}
+          <p className='mt-4 text-center'>
+            Already have an account?{" "}
+            <Link href={"/login"} className='text-blue-500'>
+              Login
+            </Link>
+          </p>
+
         </form>
       </div>
     </div>
