@@ -16,17 +16,17 @@ const LoginPage = () => {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
-
+ // const searchParams = useSearchParams();
+  
   const handleGoogleSignin = async () => {
     await authClient.signIn.social({
       provider: "google",
-      callbackURL: searchParams.get("redirect") || "/"
+      callbackURL:   "/"
     });
   };
 
   const handleLoginFunc = async (data) => {
-    const redirect = searchParams.get("redirect") || "/";
+    const redirect = "/";
 
     const { error } = await authClient.signIn.email({
       email: data.email,
@@ -43,7 +43,7 @@ const LoginPage = () => {
   };
 
 
-  
+
   return (
    <Suspense fallback={<div>Loading...</div>}>
      <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
