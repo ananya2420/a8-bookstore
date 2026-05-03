@@ -15,16 +15,22 @@ const BookDetailsPage = ({ params }) => {
   const book = books.find((b) => b.id == id);
 
   // REAL AUTH USER (FIXED)
-  const { data: session } = authClient.useSession();
+  const { data: session,isPending  } = authClient.useSession();
   const user = session?.user;
 
-  // PRIVATE ROUTE PROTECTION
+ 
   React.useEffect(() => {
+     if (isPending) return;  
+   
     if (!user) {
       toast.error("Please login to access this page!");
       router.push("/login");
     }
-  }, [user, router]);
+  }, [user,isPending, router]);
+
+  if (isPending) {
+  return <div>Loading...</div>;
+}
 
   const handleBorrow = () => {
     if (!user) {
