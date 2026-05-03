@@ -5,5 +5,6 @@ export const authClient = createAuthClient({
    baseURL: process.env.BETTER_AUTH-URL,
 })
 
+
 // Export the hook for easy access in components
 export const { useSession, updateSession } = authClient;
