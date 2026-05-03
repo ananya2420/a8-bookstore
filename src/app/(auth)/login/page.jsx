@@ -3,7 +3,7 @@
 import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Google from "../../../assets/google.png";
@@ -43,7 +43,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
+   <Suspense fallback={<div>Loading...</div>}>
+     <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
       <div className='p-4 rounded-xl bg-white text-black'>
         <h2 className='font-bold text-3xl text-center mb-6'>Login your account</h2>
 
@@ -102,6 +103,7 @@ const LoginPage = () => {
         </form>
       </div>
     </div>
+   </Suspense>
   );
 };
 
